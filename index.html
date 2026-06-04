@@ -1,0 +1,1986 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spotless SF — Professional Home Cleaning in San Francisco</title>
+  <meta name="description" content="San Francisco's most trusted home cleaning service. Vetted, insured, and background-checked cleaners. Book in 60 seconds." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Georgia&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --rust: #A84432;
+      --rust-dark: #8a3428;
+      --rust-light: #c4553e;
+      --rust-pale: #f9f0ee;
+      --rust-mid: #f0dbd7;
+      --charcoal: #1c1c1c;
+      --gray-600: #4a4a4a;
+      --gray-400: #8a8a8a;
+      --gray-100: #f5f5f5;
+      --white: #ffffff;
+      --radius: 4px;
+      --radius-lg: 8px;
+      --shadow: 0 2px 16px rgba(168,68,50,0.08);
+      --shadow-md: 0 8px 32px rgba(0,0,0,0.10);
+      --font-serif: Georgia, 'Times New Roman', serif;
+      --font-sans: 'Inter', -apple-system, sans-serif;
+      --max-w: 1140px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-sans);
+      color: var(--charcoal);
+      background: var(--white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── NAV ─────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(168,68,50,0.10);
+      transition: box-shadow 0.2s;
+    }
+    nav.scrolled { box-shadow: 0 2px 24px rgba(0,0,0,0.08); }
+    .nav-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .nav-logo svg { height: 36px; width: auto; }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--gray-600);
+      letter-spacing: 0.3px;
+      transition: color 0.15s;
+    }
+    .nav-links a:hover { color: var(--rust); }
+    .nav-cta {
+      background: var(--rust);
+      color: var(--white) !important;
+      padding: 10px 22px;
+      border-radius: var(--radius);
+      font-weight: 600 !important;
+      letter-spacing: 0.5px;
+      transition: background 0.15s !important;
+    }
+    .nav-cta:hover { background: var(--rust-dark) !important; color: var(--white) !important; }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--charcoal);
+      border-radius: 2px;
+      transition: all 0.2s;
+    }
+
+    /* ─── HERO ────────────────────────────────────────── */
+    .hero {
+      padding: 140px 24px 100px;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--rust);
+      margin-bottom: 20px;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--rust);
+    }
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(40px, 5vw, 60px);
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--charcoal);
+      margin-bottom: 20px;
+      letter-spacing: -0.5px;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--rust);
+    }
+    .hero p {
+      font-size: 18px;
+      color: var(--gray-600);
+      margin-bottom: 36px;
+      line-height: 1.7;
+      max-width: 440px;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--rust);
+      color: var(--white);
+      padding: 15px 32px;
+      border-radius: var(--radius);
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background 0.15s, transform 0.1s;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: var(--rust-dark); transform: translateY(-1px); }
+    .btn-secondary {
+      color: var(--rust);
+      font-size: 15px;
+      font-weight: 500;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap 0.15s;
+    }
+    .btn-secondary:hover { gap: 10px; }
+    .hero-trust {
+      display: flex;
+      gap: 24px;
+      margin-top: 40px;
+      flex-wrap: wrap;
+    }
+    .trust-pill {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--gray-600);
+      font-weight: 500;
+    }
+    .trust-pill svg { color: var(--rust); flex-shrink: 0; }
+    .hero-visual {
+      position: relative;
+    }
+    .hero-card {
+      background: var(--white);
+      border: 1px solid var(--rust-mid);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      box-shadow: var(--shadow-md);
+    }
+    .hero-card-title {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--charcoal);
+      margin-bottom: 6px;
+    }
+    .hero-card-sub {
+      font-size: 13px;
+      color: var(--gray-400);
+      margin-bottom: 28px;
+    }
+    .booking-form {}
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .form-group { display: flex; flex-direction: column; gap: 5px; }
+    .form-group label { font-size: 12px; font-weight: 600; letter-spacing: 0.5px; color: var(--gray-600); }
+    .form-group select,
+    .form-group input {
+      padding: 11px 14px;
+      border: 1.5px solid #e5e5e5;
+      border-radius: var(--radius);
+      font-size: 14px;
+      font-family: var(--font-sans);
+      color: var(--charcoal);
+      background: var(--white);
+      transition: border-color 0.15s;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+    .form-group select:focus,
+    .form-group input:focus {
+      outline: none;
+      border-color: var(--rust);
+    }
+    .select-wrapper { position: relative; }
+    .select-wrapper::after {
+      content: '▾';
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--gray-400);
+      pointer-events: none;
+      font-size: 12px;
+    }
+    .form-full { grid-column: 1 / -1; }
+    .form-price {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 0;
+      margin: 16px 0 12px;
+      border-top: 1px solid #f0f0f0;
+    }
+    .price-label { font-size: 13px; color: var(--gray-600); }
+    .price-value {
+      font-family: var(--font-serif);
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--rust);
+    }
+    .price-note { font-size: 11px; color: var(--gray-400); }
+    .hero-card .btn-primary { width: 100%; text-align: center; padding: 14px; font-size: 15px; }
+    .hero-float-badge {
+      position: absolute;
+      bottom: -20px;
+      left: -24px;
+      background: var(--white);
+      border: 1px solid var(--rust-mid);
+      border-radius: var(--radius-lg);
+      padding: 14px 18px;
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .badge-stars { color: #f5a623; font-size: 14px; letter-spacing: 1px; }
+    .badge-text { font-size: 13px; font-weight: 600; color: var(--charcoal); }
+    .badge-sub { font-size: 11px; color: var(--gray-400); }
+
+    /* ─── LOGOS / TRUST BAR ───────────────────────────── */
+    .trust-bar {
+      background: var(--rust-pale);
+      border-top: 1px solid var(--rust-mid);
+      border-bottom: 1px solid var(--rust-mid);
+      padding: 24px;
+    }
+    .trust-bar-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--rust-dark);
+    }
+    .trust-item svg { color: var(--rust); }
+
+    /* ─── SECTIONS SHARED ────────────────────────────── */
+    section { padding: 96px 24px; }
+    .section-inner { max-width: var(--max-w); margin: 0 auto; }
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--rust);
+      margin-bottom: 14px;
+    }
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(30px, 4vw, 44px);
+      font-weight: 700;
+      color: var(--charcoal);
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+    .section-sub {
+      font-size: 17px;
+      color: var(--gray-600);
+      max-width: 560px;
+      line-height: 1.7;
+    }
+    .section-header { margin-bottom: 56px; }
+    .section-header.center { text-align: center; }
+    .section-header.center .section-sub { margin: 0 auto; }
+
+    /* ─── SERVICES ───────────────────────────────────── */
+    .services { background: var(--white); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .service-card {
+      border: 1.5px solid #ebebeb;
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--rust);
+      transform: scaleX(0);
+      transition: transform 0.2s;
+    }
+    .service-card:hover {
+      border-color: var(--rust-mid);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--rust-pale);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      color: var(--rust);
+    }
+    .service-card h3 {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--charcoal);
+    }
+    .service-card p {
+      font-size: 14px;
+      color: var(--gray-600);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .service-card-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      margin-bottom: 24px;
+    }
+    .service-card-features li {
+      font-size: 13px;
+      color: var(--gray-600);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .service-card-features li::before {
+      content: '✓';
+      color: var(--rust);
+      font-weight: 700;
+      font-size: 12px;
+      flex-shrink: 0;
+    }
+    .service-price {
+      font-weight: 700;
+      color: var(--rust);
+      font-size: 15px;
+    }
+    .service-card.featured {
+      background: var(--rust);
+      border-color: var(--rust);
+      color: var(--white);
+    }
+    .service-card.featured::before { background: var(--rust-dark); }
+    .service-card.featured .service-icon {
+      background: rgba(255,255,255,0.15);
+      color: var(--white);
+    }
+    .service-card.featured h3 { color: var(--white); }
+    .service-card.featured p { color: rgba(255,255,255,0.8); }
+    .service-card.featured .service-card-features li { color: rgba(255,255,255,0.85); }
+    .service-card.featured .service-card-features li::before { color: rgba(255,255,255,0.9); }
+    .service-card.featured .service-price { color: rgba(255,255,255,0.95); }
+    .badge-popular {
+      position: absolute;
+      top: 20px; right: 20px;
+      background: rgba(255,255,255,0.2);
+      color: var(--white);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+
+    /* ─── HOW IT WORKS ──────────────────────────────── */
+    .how { background: var(--rust-pale); }
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      position: relative;
+    }
+    .steps-grid::before {
+      content: '';
+      position: absolute;
+      top: 28px;
+      left: 12%;
+      right: 12%;
+      height: 1px;
+      background: var(--rust-mid);
+      z-index: 0;
+    }
+    .step {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+    .step-num {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--white);
+      border: 2px solid var(--rust-mid);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-family: var(--font-serif);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--rust);
+      box-shadow: 0 2px 8px rgba(168,68,50,0.1);
+    }
+    .step h4 {
+      font-weight: 600;
+      font-size: 16px;
+      margin-bottom: 8px;
+      color: var(--charcoal);
+    }
+    .step p {
+      font-size: 14px;
+      color: var(--gray-600);
+      line-height: 1.6;
+    }
+
+    /* ─── GUARANTEE ──────────────────────────────────── */
+    .guarantee {
+      background: var(--rust);
+      color: var(--white);
+      padding: 64px 24px;
+    }
+    .guarantee-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .guarantee-icon {
+      display: flex;
+      justify-content: center;
+    }
+    .guarantee-badge {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: 3px solid rgba(255,255,255,0.3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+      gap: 4px;
+    }
+    .guarantee-badge .big { font-family: var(--font-serif); font-size: 40px; font-weight: 700; line-height: 1; }
+    .guarantee-badge .small { font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; opacity: 0.8; }
+    .guarantee h2 {
+      font-family: var(--font-serif);
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .guarantee p {
+      font-size: 17px;
+      opacity: 0.88;
+      line-height: 1.7;
+      max-width: 520px;
+    }
+    .guarantee-points {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 28px;
+    }
+    .guarantee-point {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 15px;
+      font-weight: 500;
+      opacity: 0.92;
+    }
+    .guarantee-point::before {
+      content: '✓';
+      font-weight: 700;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    /* ─── TESTIMONIALS ───────────────────────────────── */
+    .reviews { background: var(--white); }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .review-card {
+      border: 1.5px solid #ebebeb;
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      transition: box-shadow 0.2s;
+    }
+    .review-card:hover { box-shadow: var(--shadow-md); }
+    .review-stars { color: #f5a623; font-size: 16px; letter-spacing: 2px; margin-bottom: 14px; }
+    .review-text {
+      font-size: 15px;
+      color: var(--gray-600);
+      line-height: 1.7;
+      margin-bottom: 24px;
+      font-style: italic;
+    }
+    .review-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .review-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--rust-pale);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-serif);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--rust);
+      flex-shrink: 0;
+    }
+    .review-name { font-size: 14px; font-weight: 600; color: var(--charcoal); }
+    .review-location { font-size: 12px; color: var(--gray-400); margin-top: 1px; }
+    .reviews-summary {
+      text-align: center;
+      margin-top: 48px;
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+    .stat-item { text-align: center; }
+    .stat-num {
+      font-family: var(--font-serif);
+      font-size: 40px;
+      font-weight: 700;
+      color: var(--rust);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .stat-label { font-size: 13px; color: var(--gray-400); font-weight: 500; }
+
+    /* ─── AREAS ──────────────────────────────────────── */
+    .areas { background: var(--rust-pale); }
+    .areas-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    .area-pill {
+      background: var(--white);
+      border: 1.5px solid var(--rust-mid);
+      border-radius: 100px;
+      padding: 12px 20px;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--charcoal);
+      transition: all 0.15s;
+      cursor: default;
+    }
+    .area-pill:hover {
+      background: var(--rust);
+      color: var(--white);
+      border-color: var(--rust);
+    }
+
+    /* ─── PRICING ────────────────────────────────────── */
+    .pricing { background: var(--white); }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .pricing-card {
+      border: 1.5px solid #ebebeb;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .pricing-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+    .pricing-card.featured-plan {
+      border-color: var(--rust);
+      box-shadow: 0 0 0 1px var(--rust);
+    }
+    .pricing-header {
+      padding: 32px 32px 24px;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .pricing-card.featured-plan .pricing-header {
+      background: var(--rust);
+      color: var(--white);
+    }
+    .plan-badge {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      background: rgba(255,255,255,0.2);
+      color: var(--white);
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 14px;
+    }
+    .plan-name {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--charcoal);
+      margin-bottom: 4px;
+    }
+    .pricing-card.featured-plan .plan-name { color: var(--white); }
+    .plan-tagline { font-size: 13px; color: var(--gray-400); }
+    .pricing-card.featured-plan .plan-tagline { color: rgba(255,255,255,0.75); }
+    .plan-price { margin-top: 20px; }
+    .plan-price .from { font-size: 12px; color: var(--gray-400); }
+    .pricing-card.featured-plan .plan-price .from { color: rgba(255,255,255,0.7); }
+    .plan-price .amount {
+      font-family: var(--font-serif);
+      font-size: 42px;
+      font-weight: 700;
+      color: var(--charcoal);
+      line-height: 1;
+    }
+    .pricing-card.featured-plan .plan-price .amount { color: var(--white); }
+    .plan-price .period { font-size: 13px; color: var(--gray-400); margin-left: 4px; }
+    .pricing-card.featured-plan .plan-price .period { color: rgba(255,255,255,0.7); }
+    .pricing-body { padding: 28px 32px 32px; }
+    .plan-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+    .plan-features li {
+      font-size: 14px;
+      color: var(--gray-600);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .plan-features li::before {
+      content: '✓';
+      color: var(--rust);
+      font-weight: 700;
+      font-size: 13px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .plan-features li.disabled { opacity: 0.35; }
+    .plan-features li.disabled::before { content: '–'; font-weight: 400; }
+    .btn-plan {
+      display: block;
+      width: 100%;
+      text-align: center;
+      padding: 13px;
+      border-radius: var(--radius);
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.15s;
+      border: 2px solid var(--rust);
+      color: var(--rust);
+      background: transparent;
+    }
+    .btn-plan:hover { background: var(--rust); color: var(--white); }
+    .btn-plan.primary-plan {
+      background: var(--rust);
+      color: var(--white);
+    }
+    .btn-plan.primary-plan:hover { background: var(--rust-dark); border-color: var(--rust-dark); }
+
+    /* ─── FAQ ────────────────────────────────────────── */
+    .faq { background: var(--rust-pale); }
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .faq-item {
+      background: var(--white);
+      border: 1.5px solid var(--rust-mid);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    .faq-q {
+      padding: 20px 24px;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--charcoal);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      transition: color 0.15s;
+      user-select: none;
+    }
+    .faq-q:hover { color: var(--rust); }
+    .faq-q.open { color: var(--rust); }
+    .faq-icon {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 1.5px solid currentColor;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 14px;
+      font-weight: 300;
+      transition: transform 0.2s;
+    }
+    .faq-q.open .faq-icon { transform: rotate(45deg); }
+    .faq-a {
+      display: none;
+      padding: 0 24px 20px;
+      font-size: 14px;
+      color: var(--gray-600);
+      line-height: 1.7;
+    }
+    .faq-a.open { display: block; }
+
+    /* ─── CONTACT / BOOKING ──────────────────────────── */
+    .contact { background: var(--white); }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .contact-info h2 {
+      font-family: var(--font-serif);
+      font-size: 40px;
+      font-weight: 700;
+      color: var(--charcoal);
+      margin-bottom: 16px;
+      line-height: 1.15;
+    }
+    .contact-info p {
+      font-size: 16px;
+      color: var(--gray-600);
+      line-height: 1.7;
+      margin-bottom: 36px;
+    }
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .contact-detail {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 15px;
+      color: var(--charcoal);
+      font-weight: 500;
+    }
+    .contact-detail-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--rust-pale);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--rust);
+      flex-shrink: 0;
+    }
+    .contact-form {
+      background: var(--rust-pale);
+      border: 1.5px solid var(--rust-mid);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+    }
+    .contact-form h3 {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--charcoal);
+      margin-bottom: 24px;
+    }
+    .contact-form .form-group { margin-bottom: 14px; }
+    .contact-form .form-group label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      color: var(--gray-600);
+      display: block;
+      margin-bottom: 5px;
+    }
+    .contact-form .form-group input,
+    .contact-form .form-group select,
+    .contact-form .form-group textarea {
+      width: 100%;
+      padding: 11px 14px;
+      border: 1.5px solid #e5e5e5;
+      border-radius: var(--radius);
+      font-size: 14px;
+      font-family: var(--font-sans);
+      color: var(--charcoal);
+      background: var(--white);
+      transition: border-color 0.15s;
+    }
+    .contact-form .form-group textarea { resize: vertical; min-height: 100px; }
+    .contact-form .form-group input:focus,
+    .contact-form .form-group select:focus,
+    .contact-form .form-group textarea:focus {
+      outline: none;
+      border-color: var(--rust);
+    }
+    .contact-form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .contact-form .btn-primary { width: 100%; text-align: center; margin-top: 8px; padding: 14px; }
+
+    /* ─── FOOTER ─────────────────────────────────────── */
+    footer {
+      background: var(--charcoal);
+      color: rgba(255,255,255,0.75);
+      padding: 64px 24px 32px;
+    }
+    .footer-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+    .footer-brand svg { height: 32px; width: auto; margin-bottom: 16px; }
+    .footer-brand p { font-size: 14px; line-height: 1.7; max-width: 260px; }
+    .footer-social {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .social-link {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      font-size: 14px;
+      transition: all 0.15s;
+    }
+    .social-link:hover {
+      border-color: var(--rust);
+      color: var(--rust);
+    }
+    .footer-col h4 {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 18px;
+    }
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer-links a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.15s;
+    }
+    .footer-links a:hover { color: var(--rust-light); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-bottom p { font-size: 13px; }
+    .footer-legal {
+      display: flex;
+      gap: 20px;
+    }
+    .footer-legal a {
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .footer-legal a:hover { color: rgba(255,255,255,0.8); }
+
+    /* ─── STICKY CTA ─────────────────────────────────── */
+    .sticky-cta {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 99;
+      opacity: 0;
+      transform: translateY(16px);
+      transition: all 0.3s;
+      pointer-events: none;
+    }
+    .sticky-cta.visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    .sticky-cta a {
+      background: var(--rust);
+      color: var(--white);
+      padding: 14px 24px;
+      border-radius: 100px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(168,68,50,0.4);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.15s, box-shadow 0.15s;
+    }
+    .sticky-cta a:hover {
+      background: var(--rust-dark);
+      box-shadow: 0 6px 28px rgba(168,68,50,0.5);
+    }
+
+    /* ─── FORM SUCCESS ───────────────────────────────── */
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    .form-success.show { display: block; }
+    .form-success-icon {
+      font-size: 48px;
+      margin-bottom: 16px;
+    }
+    .form-success h3 {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      color: var(--charcoal);
+      margin-bottom: 8px;
+    }
+    .form-success p {
+      color: var(--gray-600);
+      font-size: 15px;
+    }
+
+    /* ─── RESPONSIVE ─────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .hero { grid-template-columns: 1fr; gap: 48px; padding-top: 120px; }
+      .hero-visual { max-width: 480px; }
+      .hero-float-badge { left: 0; }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .steps-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .steps-grid::before { display: none; }
+      .areas-grid { grid-template-columns: repeat(3, 1fr); }
+      .pricing-grid { grid-template-columns: 1fr; max-width: 440px; margin: 0 auto; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      section { padding: 72px 20px; }
+      .nav-links { display: none; }
+      .nav-links.mobile-open {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 68px; left: 0; right: 0;
+        background: var(--white);
+        padding: 24px;
+        border-bottom: 1px solid #f0f0f0;
+        gap: 20px;
+        box-shadow: var(--shadow-md);
+      }
+      .hamburger { display: flex; }
+      .hero { padding: 100px 20px 64px; }
+      .services-grid { grid-template-columns: 1fr; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .faq-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+      .contact-form-row { grid-template-columns: 1fr; }
+      .guarantee-inner { grid-template-columns: 1fr; gap: 32px; text-align: center; }
+      .guarantee-icon { order: -1; }
+      .guarantee p { margin: 0 auto; }
+      .areas-grid { grid-template-columns: 1fr 1fr; }
+      .footer-top { grid-template-columns: 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .hero-float-badge { display: none; }
+      .form-row { grid-template-columns: 1fr; }
+      .reviews-summary { gap: 28px; }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 34px; }
+      .hero-actions { flex-direction: column; align-items: flex-start; }
+      .areas-grid { grid-template-columns: 1fr; }
+      .trust-bar-inner { gap: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── NAVIGATION ──────────────────────────────────────── -->
+<nav id="main-nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo" aria-label="Spotless SF Home">
+      <svg viewBox="0 0 240 80" xmlns="http://www.w3.org/2000/svg">
+        <!-- Mini houses row -->
+        <g fill="none" stroke="#A84432" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round">
+          <!-- h1 -->
+          <rect x="14" y="36" width="26" height="18"/>
+          <polyline points="14,36 27,27 40,36"/>
+          <rect x="20" y="43" width="7" height="11"/>
+          <!-- h2 -->
+          <rect x="40" y="31" width="28" height="23"/>
+          <polyline points="40,31 54,21 68,31"/>
+          <polyline points="44,31 54,25 64,31"/>
+          <rect x="45" y="39" width="8" height="15"/>
+          <!-- h3 -->
+          <rect x="68" y="26" width="28" height="28"/>
+          <polyline points="68,26 82,14 96,26"/>
+          <polyline points="72,26 82,18 92,26"/>
+          <rect x="75" y="36" width="8" height="18"/>
+        </g>
+        <!-- sparkle -->
+        <g transform="translate(82, 8)">
+          <line x1="0" y1="-5" x2="0" y2="5" stroke="#A84432" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="-5" y1="0" x2="5" y2="0" stroke="#A84432" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="-3" y1="-3" x2="3" y2="3" stroke="#A84432" stroke-width="1.1" stroke-linecap="round"/>
+          <line x1="3" y1="-3" x2="-3" y2="3" stroke="#A84432" stroke-width="1.1" stroke-linecap="round"/>
+        </g>
+        <!-- wordmark -->
+        <text x="108" y="45" font-family="Georgia,'Times New Roman',serif" font-size="22" font-weight="700" fill="#A84432" letter-spacing="1">SPOTLESS</text>
+        <text x="108" y="60" font-family="Arial,Helvetica,sans-serif" font-size="9" font-weight="500" fill="#A84432" letter-spacing="4">SAN FRANCISCO</text>
+      </svg>
+    </a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#how">How It Works</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#contact" class="nav-cta">Book Now</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ─── HERO ─────────────────────────────────────────────── -->
+<section style="padding: 0;">
+  <div class="hero">
+    <div class="hero-content">
+      <div class="hero-eyebrow">San Francisco's Finest</div>
+      <h1>Your home,<br><em>perfectly</em><br>spotless.</h1>
+      <p>Professional home cleaning for San Francisco's Victorian homes and modern apartments. Vetted, insured, and background-checked cleaners — satisfaction guaranteed.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">Book a Cleaning</a>
+        <a href="#services" class="btn-secondary">See services →</a>
+      </div>
+      <div class="hero-trust">
+        <div class="trust-pill">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Fully Insured
+        </div>
+        <div class="trust-pill">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/></svg>
+          Background Checked
+        </div>
+        <div class="trust-pill">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          100% Satisfaction
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="hero-card">
+        <div class="hero-card-title">Get an instant quote</div>
+        <div class="hero-card-sub">Most bookings confirmed in under 2 hours</div>
+        <form class="booking-form" id="hero-form" onsubmit="return false;">
+          <div class="form-row">
+            <div class="form-group">
+              <label>SERVICE TYPE</label>
+              <div class="select-wrapper">
+                <select id="service-type" onchange="updatePrice()">
+                  <option value="standard">Standard Clean</option>
+                  <option value="deep">Deep Clean</option>
+                  <option value="move">Move In / Out</option>
+                  <option value="airbnb">Airbnb Turnover</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>HOME SIZE</label>
+              <div class="select-wrapper">
+                <select id="home-size" onchange="updatePrice()">
+                  <option value="studio">Studio</option>
+                  <option value="1br">1 Bedroom</option>
+                  <option value="2br" selected>2 Bedrooms</option>
+                  <option value="3br">3 Bedrooms</option>
+                  <option value="4br">4+ Bedrooms</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>DATE</label>
+              <input type="date" id="clean-date" />
+            </div>
+            <div class="form-group">
+              <label>FREQUENCY</label>
+              <div class="select-wrapper">
+                <select id="frequency" onchange="updatePrice()">
+                  <option value="once">One-Time</option>
+                  <option value="weekly">Weekly (10% off)</option>
+                  <option value="biweekly" selected>Bi-Weekly (7% off)</option>
+                  <option value="monthly">Monthly (5% off)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="form-price">
+            <div>
+              <div class="price-label">Estimated price</div>
+              <div class="price-note">Final quote after walkthrough</div>
+            </div>
+            <div class="price-value" id="price-display">$189</div>
+          </div>
+          <a href="#contact" class="btn-primary">Book This Clean</a>
+        </form>
+      </div>
+      <div class="hero-float-badge">
+        <div>
+          <div class="badge-stars">★★★★★</div>
+          <div class="badge-text">4.9 out of 5</div>
+          <div class="badge-sub">from 340+ verified reviews</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TRUST BAR ─────────────────────────────────────────── -->
+<div class="trust-bar">
+  <div class="trust-bar-inner">
+    <div class="trust-item">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      Fully Licensed & Insured
+    </div>
+    <div class="trust-item">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/></svg>
+      Background-Checked Cleaners
+    </div>
+    <div class="trust-item">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      Secure Online Booking
+    </div>
+    <div class="trust-item">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+      Happiness Guaranteed
+    </div>
+    <div class="trust-item">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+      Same-Week Availability
+    </div>
+  </div>
+</div>
+
+<!-- ─── SERVICES ──────────────────────────────────────────── -->
+<section class="services" id="services">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label">What We Offer</div>
+      <h2 class="section-title">Every clean, tailored<br>to your home.</h2>
+      <p class="section-sub">From quick refreshes to thorough move-out cleans — we handle every corner of your home with professional care.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <h3>Standard Clean</h3>
+        <p>Your go-to recurring clean. We hit all the essential surfaces so your home stays consistently fresh between deep cleans.</p>
+        <ul class="service-card-features">
+          <li>Kitchen surfaces & appliance exteriors</li>
+          <li>Bathroom scrub & sanitize</li>
+          <li>Vacuuming & mopping all floors</li>
+          <li>Dusting surfaces & fixtures</li>
+          <li>Trash removal & linens changed</li>
+        </ul>
+        <div class="service-price">From $129 · 2–3 hrs</div>
+      </div>
+      <div class="service-card featured">
+        <div class="badge-popular">Most Popular</div>
+        <div class="service-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <h3>Deep Clean</h3>
+        <p>A thorough top-to-bottom clean for homes that need extra attention. Perfect for seasonal refreshes or getting back on track.</p>
+        <ul class="service-card-features">
+          <li>Everything in Standard Clean</li>
+          <li>Inside oven & refrigerator</li>
+          <li>Baseboards, window sills & blinds</li>
+          <li>Light switches & door handles</li>
+          <li>Inside cabinet & drawer wipedown</li>
+        </ul>
+        <div class="service-price">From $229 · 4–6 hrs</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        </div>
+        <h3>Move In / Out</h3>
+        <p>Leave your old place spotless or arrive to a pristine new home. We ensure every inch is ready for inspection or move-in day.</p>
+        <ul class="service-card-features">
+          <li>Everything in Deep Clean</li>
+          <li>Inside all cabinets & drawers</li>
+          <li>Walls spot-cleaned</li>
+          <li>All closets cleaned out</li>
+          <li>Final walkthrough with checklist</li>
+        </ul>
+        <div class="service-price">From $299 · 5–8 hrs</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <h3>Airbnb Turnover</h3>
+        <p>Fast, reliable turnovers timed to your calendar. We handle everything between guests so you get great reviews on autopilot.</p>
+        <ul class="service-card-features">
+          <li>Full clean between checkouts</li>
+          <li>Fresh linens & towels staged</li>
+          <li>Restock supplies as needed</li>
+          <li>Photo documentation</li>
+          <li>Synced with your booking calendar</li>
+        </ul>
+        <div class="service-price">From $99 · 1.5–3 hrs</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <h3>Office Cleaning</h3>
+        <p>Keep your SF workspace professional and welcoming. Scheduled around your hours to minimize disruption to your team.</p>
+        <ul class="service-card-features">
+          <li>Workstations & common areas</li>
+          <li>Kitchen & break room</li>
+          <li>Restroom deep sanitize</li>
+          <li>Trash & recycling management</li>
+          <li>Weekly or bi-weekly service</li>
+        </ul>
+        <div class="service-price">Custom pricing · Contact us</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+        </div>
+        <h3>Post-Renovation</h3>
+        <p>Construction dust and debris require specialized cleaning. We restore your remodeled space to move-in condition, safely.</p>
+        <ul class="service-card-features">
+          <li>Construction dust removal</li>
+          <li>Paint overspray & residue</li>
+          <li>Window & glass cleaning</li>
+          <li>Tile grout & fixture polish</li>
+          <li>HEPA vacuum throughout</li>
+        </ul>
+        <div class="service-price">From $349 · Custom scope</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── HOW IT WORKS ──────────────────────────────────────── -->
+<section class="how" id="how">
+  <div class="section-inner">
+    <div class="section-header center">
+      <div class="section-label">The Process</div>
+      <h2 class="section-title">Spotless in four simple steps.</h2>
+      <p class="section-sub">We've removed every friction point. Book in 60 seconds, relax while we clean, pay only when you're happy.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h4>Book Online</h4>
+        <p>Choose your service, home size, and preferred date. Get an instant estimate with no hidden fees.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h4>We Match You</h4>
+        <p>We pair you with a vetted, background-checked cleaner who specializes in your type of home.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h4>We Clean</h4>
+        <p>Your cleaner arrives on time with all supplies. You get a text when they start and finish.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h4>You Approve</h4>
+        <p>Review the clean and pay only when you're satisfied. We'll make it right if anything is missed.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── GUARANTEE ─────────────────────────────────────────── -->
+<div class="guarantee">
+  <div class="guarantee-inner">
+    <div class="guarantee-icon">
+      <div class="guarantee-badge">
+        <div class="big">100%</div>
+        <div class="small">Happiness<br>Guarantee</div>
+      </div>
+    </div>
+    <div>
+      <h2>We're not done until<br>you're delighted.</h2>
+      <p>If anything falls short of your expectations, we'll send a team back within 24 hours — at no additional cost. We stand behind every clean we do.</p>
+      <div class="guarantee-points">
+        <div class="guarantee-point">Free re-clean within 24 hours if anything is missed</div>
+        <div class="guarantee-point">Full refund if you're not satisfied after the re-clean</div>
+        <div class="guarantee-point">Direct line to our team — no bots, no waiting</div>
+        <div class="guarantee-point">All cleaners are background-checked and fully insured</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── TESTIMONIALS ──────────────────────────────────────── -->
+<section class="reviews" id="reviews">
+  <div class="section-inner">
+    <div class="section-header center">
+      <div class="section-label">Customer Reviews</div>
+      <h2 class="section-title">Loved by SF homeowners.</h2>
+      <p class="section-sub">Don't take our word for it — here's what our neighbors in the City are saying.</p>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Spotless SF is the real deal. I've tried four different cleaning services in the Mission and none of them come close. My Victorian flat has never looked this clean — they even got the detail work on the crown molding."</p>
+        <div class="review-author">
+          <div class="review-avatar">S</div>
+          <div>
+            <div class="review-name">Sarah M.</div>
+            <div class="review-location">The Mission · bi-weekly client</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"I host on Airbnb in Noe Valley and SpotlessSF handles all my turnovers. They sync with my calendar and I've never had to worry about a guest arriving to a messy unit. Reviews went from 4.6 to 4.9 stars."</p>
+        <div class="review-author">
+          <div class="review-avatar">J</div>
+          <div>
+            <div class="review-name">James T.</div>
+            <div class="review-location">Noe Valley · Airbnb host</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Needed a move-out clean for my Pac Heights apartment with only 48 hours notice. They made it happen and my landlord was genuinely impressed. Got my full deposit back. Would absolutely use again."</p>
+        <div class="review-author">
+          <div class="review-avatar">R</div>
+          <div>
+            <div class="review-name">Rachel K.</div>
+            <div class="review-location">Pacific Heights · move-out clean</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"The team is incredibly professional and trustworthy. I work from home and they barely disturb my day. They're thorough without being intrusive, and my apartment genuinely smells amazing after every visit."</p>
+        <div class="review-author">
+          <div class="review-avatar">M</div>
+          <div>
+            <div class="review-name">Marcus L.</div>
+            <div class="review-location">SOMA · weekly client</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"We have two kids and a dog — our house needed serious help. Spotless SF did a deep clean first and set us up on a bi-weekly schedule. The difference is night and day. Our house actually stays clean now."</p>
+        <div class="review-author">
+          <div class="review-avatar">L</div>
+          <div>
+            <div class="review-name">Laura & Ben H.</div>
+            <div class="review-location">Cole Valley · bi-weekly client</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"I had some skepticism after being burned by other cleaning apps but Spotless SF restored my faith. Showed up on time, communicated throughout, and I could tell they actually cared about quality. Booking again."</p>
+        <div class="review-author">
+          <div class="review-avatar">A</div>
+          <div>
+            <div class="review-name">Alex W.</div>
+            <div class="review-location">Hayes Valley · deep clean</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="reviews-summary">
+      <div class="stat-item">
+        <div class="stat-num">4.9</div>
+        <div class="stat-label">Average rating</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">340+</div>
+        <div class="stat-label">Verified reviews</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">2,100+</div>
+        <div class="stat-label">Homes cleaned</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">97%</div>
+        <div class="stat-label">Rebooking rate</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── AREAS ──────────────────────────────────────────────── -->
+<section class="areas">
+  <div class="section-inner">
+    <div class="section-header center">
+      <div class="section-label">Service Area</div>
+      <h2 class="section-title">We clean across San Francisco.</h2>
+      <p class="section-sub">From the Sunset to the Marina, we service every neighborhood in the city.</p>
+    </div>
+    <div class="areas-grid">
+      <div class="area-pill">The Mission</div>
+      <div class="area-pill">Pacific Heights</div>
+      <div class="area-pill">Noe Valley</div>
+      <div class="area-pill">Cole Valley</div>
+      <div class="area-pill">SOMA</div>
+      <div class="area-pill">Hayes Valley</div>
+      <div class="area-pill">The Castro</div>
+      <div class="area-pill">Potrero Hill</div>
+      <div class="area-pill">The Marina</div>
+      <div class="area-pill">Russian Hill</div>
+      <div class="area-pill">Nob Hill</div>
+      <div class="area-pill">North Beach</div>
+      <div class="area-pill">Sunset District</div>
+      <div class="area-pill">Richmond District</div>
+      <div class="area-pill">Glen Park</div>
+      <div class="area-pill">Bernal Heights</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PRICING ────────────────────────────────────────────── -->
+<section class="pricing" id="pricing">
+  <div class="section-inner">
+    <div class="section-header center">
+      <div class="section-label">Pricing Plans</div>
+      <h2 class="section-title">Transparent pricing,<br>no surprises.</h2>
+      <p class="section-sub">Choose one-time or subscribe and save. Prices based on a 2-bedroom home — custom quotes for larger homes.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <div class="pricing-header">
+          <div class="plan-name">One-Time</div>
+          <div class="plan-tagline">For occasional needs</div>
+          <div class="plan-price">
+            <div class="from">Starting at</div>
+            <span class="amount">$189</span>
+            <span class="period">/ visit</span>
+          </div>
+        </div>
+        <div class="pricing-body">
+          <ul class="plan-features">
+            <li>Standard or deep clean</li>
+            <li>Professional supplies included</li>
+            <li>Background-checked cleaner</li>
+            <li>Satisfaction guarantee</li>
+            <li class="disabled">Recurring discount</li>
+            <li class="disabled">Priority scheduling</li>
+            <li class="disabled">Same cleaner every time</li>
+          </ul>
+          <a href="#contact" class="btn-plan">Book One-Time</a>
+        </div>
+      </div>
+      <div class="pricing-card featured-plan">
+        <div class="pricing-header">
+          <div class="plan-badge">Best Value</div>
+          <div class="plan-name">Bi-Weekly</div>
+          <div class="plan-tagline">Our most popular plan</div>
+          <div class="plan-price">
+            <div class="from">Starting at</div>
+            <span class="amount">$159</span>
+            <span class="period">/ visit</span>
+          </div>
+        </div>
+        <div class="pricing-body">
+          <ul class="plan-features">
+            <li>Standard clean every 2 weeks</li>
+            <li>Professional supplies included</li>
+            <li>Background-checked cleaner</li>
+            <li>Satisfaction guarantee</li>
+            <li>Save 16% vs. one-time</li>
+            <li>Priority scheduling</li>
+            <li>Same cleaner every time</li>
+          </ul>
+          <a href="#contact" class="btn-plan primary-plan">Start Bi-Weekly Plan</a>
+        </div>
+      </div>
+      <div class="pricing-card">
+        <div class="pricing-header">
+          <div class="plan-name">Weekly</div>
+          <div class="plan-tagline">For busy households</div>
+          <div class="plan-price">
+            <div class="from">Starting at</div>
+            <span class="amount">$139</span>
+            <span class="period">/ visit</span>
+          </div>
+        </div>
+        <div class="pricing-body">
+          <ul class="plan-features">
+            <li>Standard clean every week</li>
+            <li>Professional supplies included</li>
+            <li>Background-checked cleaner</li>
+            <li>Satisfaction guarantee</li>
+            <li>Save 26% vs. one-time</li>
+            <li>Priority & flexible scheduling</li>
+            <li>Dedicated cleaner team</li>
+          </ul>
+          <a href="#contact" class="btn-plan">Start Weekly Plan</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FAQ ────────────────────────────────────────────────── -->
+<section class="faq" id="faq">
+  <div class="section-inner">
+    <div class="section-header center">
+      <div class="section-label">Questions</div>
+      <h2 class="section-title">Frequently asked questions.</h2>
+    </div>
+    <div class="faq-grid" id="faq-grid">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Do I need to be home during the cleaning?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">No — most of our clients provide access with a lockbox or key. Your cleaner is background-checked and fully insured, so you can be out while we work. We'll text you when we arrive and when we're done.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Do your cleaners bring their own supplies?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">Yes! All equipment and eco-friendly cleaning products are included in your price. If you have a preference for specific products or want us to use your supplies, just let us know in the booking notes.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          How are your cleaners vetted?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">Every Spotless SF cleaner goes through a thorough background check, identity verification, and a multi-step interview process. We also conduct in-home quality checks to maintain our standards. Only the top 15% of applicants join our team.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          What if something gets damaged?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">We carry full liability insurance covering any accidental damage. In the rare event something is damaged, contact us within 24 hours and we'll handle it directly — no runaround, no hassle.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Can I request the same cleaner each time?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">Absolutely. On any recurring plan, we prioritize sending the same cleaner every visit. Once you find someone you love, we'll make sure they're your go-to. Most of our recurring clients have had the same cleaner for over a year.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          How far in advance do I need to book?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">We often have same-week availability. For best selection, we recommend booking 3–5 days in advance. For move-out or post-renovation cleans, 1–2 weeks ahead is ideal. We'll always try to accommodate last-minute requests.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          What is your cancellation policy?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">Cancel or reschedule for free up to 24 hours before your appointment. Cancellations within 24 hours incur a $40 fee to compensate your cleaner for their time. We know life happens — just give us as much notice as you can.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Do you clean Victorian homes?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">Yes — in fact, it's one of our specialties. Many of our cleaners have years of experience with SF's classic Victorian and Edwardian homes, including intricate woodwork, original hardwood floors, and detailed crown molding.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CONTACT ────────────────────────────────────────────── -->
+<section class="contact" id="contact">
+  <div class="section-inner">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="section-label">Get in Touch</div>
+        <h2>Ready for a<br>spotless home?</h2>
+        <p>Fill out the form and we'll confirm your booking within 2 hours. Have questions first? Call or text us — a real person will pick up.</p>
+        <div class="contact-details">
+          <div class="contact-detail">
+            <div class="contact-detail-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.23h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.82a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            (415) 555-0182
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            hello@spotlesssf.com
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+            </div>
+            Mon–Sat, 8am – 7pm
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            All San Francisco neighborhoods
+          </div>
+        </div>
+      </div>
+      <div class="contact-form">
+        <h3>Book your cleaning</h3>
+        <form id="contact-form" onsubmit="submitForm(event)">
+          <div class="contact-form-row">
+            <div class="form-group">
+              <label>FIRST NAME</label>
+              <input type="text" placeholder="Jane" required />
+            </div>
+            <div class="form-group">
+              <label>LAST NAME</label>
+              <input type="text" placeholder="Smith" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>EMAIL</label>
+            <input type="email" placeholder="jane@email.com" required />
+          </div>
+          <div class="form-group">
+            <label>PHONE</label>
+            <input type="tel" placeholder="(415) 000-0000" />
+          </div>
+          <div class="contact-form-row">
+            <div class="form-group">
+              <label>SERVICE TYPE</label>
+              <div class="select-wrapper">
+                <select required>
+                  <option value="">Select service…</option>
+                  <option>Standard Clean</option>
+                  <option>Deep Clean</option>
+                  <option>Move In / Out</option>
+                  <option>Airbnb Turnover</option>
+                  <option>Office Cleaning</option>
+                  <option>Post-Renovation</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>HOME SIZE</label>
+              <div class="select-wrapper">
+                <select required>
+                  <option value="">Select size…</option>
+                  <option>Studio</option>
+                  <option>1 Bedroom</option>
+                  <option>2 Bedrooms</option>
+                  <option>3 Bedrooms</option>
+                  <option>4+ Bedrooms</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>PREFERRED DATE</label>
+            <input type="date" required />
+          </div>
+          <div class="form-group">
+            <label>ANYTHING ELSE?</label>
+            <textarea placeholder="Tell us about pets, special requests, access instructions…"></textarea>
+          </div>
+          <button type="submit" class="btn-primary">Request Booking →</button>
+        </form>
+        <div class="form-success" id="form-success">
+          <div class="form-success-icon">✓</div>
+          <h3>We'll be in touch shortly!</h3>
+          <p>Booking requests are typically confirmed within 2 hours. Check your email for next steps.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─────────────────────────────────────────────── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <svg viewBox="0 0 180 50" xmlns="http://www.w3.org/2000/svg">
+          <g fill="none" stroke="#A84432" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round">
+            <rect x="10" y="22" width="18" height="13"/><polyline points="10,22 19,16 28,22"/>
+            <rect x="28" y="19" width="20" height="16"/><polyline points="28,19 38,12 48,19"/>
+            <rect x="48" y="16" width="20" height="19"/><polyline points="48,16 58,8 68,16"/>
+          </g>
+          <g transform="translate(58,3)"><line x1="0" y1="-4" x2="0" y2="4" stroke="#A84432" stroke-width="1.5" stroke-linecap="round"/><line x1="-4" y1="0" x2="4" y2="0" stroke="#A84432" stroke-width="1.5" stroke-linecap="round"/></g>
+          <text x="78" y="28" font-family="Georgia,serif" font-size="17" font-weight="700" fill="#A84432" letter-spacing="1">SPOTLESS</text>
+          <text x="78" y="40" font-family="Arial,sans-serif" font-size="7" font-weight="500" fill="#A84432" letter-spacing="3">SAN FRANCISCO</text>
+        </svg>
+        <p>Professional home cleaning for San Francisco's most beautiful homes. Trusted by 2,100+ households across the city.</p>
+        <div class="footer-social">
+          <a href="#" class="social-link" aria-label="Instagram">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Facebook">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Nextdoor">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul class="footer-links">
+          <li><a href="#services">Standard Clean</a></li>
+          <li><a href="#services">Deep Clean</a></li>
+          <li><a href="#services">Move In / Out</a></li>
+          <li><a href="#services">Airbnb Turnover</a></li>
+          <li><a href="#services">Office Cleaning</a></li>
+          <li><a href="#services">Post-Renovation</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Neighborhoods</h4>
+        <ul class="footer-links">
+          <li><a href="#">The Mission</a></li>
+          <li><a href="#">Pacific Heights</a></li>
+          <li><a href="#">Noe Valley</a></li>
+          <li><a href="#">Hayes Valley</a></li>
+          <li><a href="#">The Marina</a></li>
+          <li><a href="#">View All Areas</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul class="footer-links">
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Our Cleaners</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Spotless SF. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Cookie Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ─── STICKY CTA ─────────────────────────────────────────── -->
+<div class="sticky-cta" id="sticky-cta">
+  <a href="#contact">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+    Book a Cleaning
+  </a>
+</div>
+
+<script>
+  // ── Nav scroll behavior ──
+  const nav = document.getElementById('main-nav');
+  const stickyCta = document.getElementById('sticky-cta');
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    nav.classList.toggle('scrolled', y > 20);
+    stickyCta.classList.toggle('visible', y > 600);
+  });
+
+  // ── Mobile menu ──
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('nav-links');
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('mobile-open');
+  });
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => navLinks.classList.remove('mobile-open'));
+  });
+
+  // ── Price calculator ──
+  const prices = {
+    standard: { studio: 129, '1br': 149, '2br': 169, '3br': 199, '4br': 239 },
+    deep:     { studio: 199, '1br': 229, '2br': 269, '3br': 319, '4br': 389 },
+    move:     { studio: 249, '1br': 299, '2br': 349, '3br': 419, '4br': 499 },
+    airbnb:   { studio: 79,  '1br': 99,  '2br': 129, '3br': 159, '4br': 199 },
+  };
+  const discounts = { once: 1, weekly: 0.9, biweekly: 0.93, monthly: 0.95 };
+
+  function updatePrice() {
+    const type = document.getElementById('service-type').value;
+    const size = document.getElementById('home-size').value;
+    const freq = document.getElementById('frequency').value;
+    const base = prices[type]?.[size] ?? 169;
+    const final = Math.round(base * discounts[freq]);
+    document.getElementById('price-display').textContent = '$' + final;
+  }
+  updatePrice();
+
+  // Set min date on date input
+  const dateInput = document.getElementById('clean-date');
+  if (dateInput) {
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    dateInput.min = tomorrow.toISOString().split('T')[0];
+  }
+
+  // ── FAQ accordion ──
+  function toggleFaq(el) {
+    const answer = el.nextElementSibling;
+    const isOpen = el.classList.contains('open');
+    // close all
+    document.querySelectorAll('.faq-q.open').forEach(q => {
+      q.classList.remove('open');
+      q.nextElementSibling.classList.remove('open');
+    });
+    if (!isOpen) {
+      el.classList.add('open');
+      answer.classList.add('open');
+    }
+  }
+
+  // ── Contact form submit ──
+  function submitForm(e) {
+    e.preventDefault();
+    document.getElementById('contact-form').style.display = 'none';
+    document.getElementById('form-success').classList.add('show');
+  }
+</script>
+
+</body>
+</html>
