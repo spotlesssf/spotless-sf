@@ -1202,7 +1202,7 @@
             <div class="form-group">
               <label>HOME SIZE</label>
               <div class="select-wrapper">
-                <select id="home-size" onchange="updatePrice()">
+                <select id="home-size" onchange="syncSqft(); updatePrice()">
                   <option value="studio">Studio</option>
                   <option value="1br">1 Bedroom</option>
                   <option value="2br" selected>2 Bedrooms</option>
@@ -1214,9 +1214,21 @@
           </div>
           <div class="form-row">
             <div class="form-group">
-              <label>DATE</label>
+              <label>SQ FOOTAGE (ESTIMATE)</label>
+              <div class="select-wrapper">
+                <select id="sqft" onchange="syncHomeSize(); updatePrice()">
+                  <option value="studio">400–550 sq ft (Studio)</option>
+                  <option value="1br">550–800 sq ft (1 Bed)</option>
+                  <option value="2br" selected>800–1,200 sq ft (2 Bed)</option>
+                  <option value="3br">1,200–1,800 sq ft (3 Bed)</option>
+                  <option value="4br">1,800+ sq ft (4+ Bed)</option>
+                </select>
+              </div>
+            </div>
               <input type="date" id="clean-date" />
             </div>
+          </div>
+          <div class="form-row">
             <div class="form-group">
               <label>FREQUENCY</label>
               <div class="select-wrapper">
@@ -1670,6 +1682,14 @@
   };
   const discounts = { once: 1, weekly: 0.9, biweekly: 0.93, monthly: 0.95 };
 
+  function syncSqft() {
+    const size = document.getElementById('home-size').value;
+    document.getElementById('sqft').value = size;
+  }
+  function syncHomeSize() {
+    const sqft = document.getElementById('sqft').value;
+    document.getElementById('home-size').value = sqft;
+  }
   function updatePrice() {
     const type = document.getElementById('service-type').value;
     const size = document.getElementById('home-size').value;
