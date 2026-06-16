@@ -1228,19 +1228,6 @@
               <input type="date" id="clean-date" />
             </div>
           </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label>FREQUENCY</label>
-              <div class="select-wrapper">
-                <select id="frequency" onchange="updatePrice()">
-                  <option value="once">One-Time</option>
-                  <option value="weekly">Weekly (10% off)</option>
-                  <option value="biweekly" selected>Bi-Weekly (7% off)</option>
-                  <option value="monthly">Monthly (5% off)</option>
-                </select>
-              </div>
-            </div>
-          </div>
           <div class="form-price">
             <div>
               <div class="price-label">Estimated price</div>
@@ -1680,8 +1667,6 @@
     deep:     { studio: 189, '1br': 245, '2br': 309, '3br': 389, '4br': 489 },
     move:     { studio: 279, '1br': 339, '2br': 429, '3br': 519, '4br': 649 },
   };
-  const discounts = { once: 1, weekly: 0.9, biweekly: 0.93, monthly: 0.95 };
-
   function syncSqft() {
     const size = document.getElementById('home-size').value;
     document.getElementById('sqft').value = size;
@@ -1693,10 +1678,8 @@
   function updatePrice() {
     const type = document.getElementById('service-type').value;
     const size = document.getElementById('home-size').value;
-    const freq = document.getElementById('frequency').value;
     const base = prices[type]?.[size] ?? 209;
-    const final = Math.round(base * discounts[freq]);
-    document.getElementById('price-display').textContent = '$' + final;
+    document.getElementById('price-display').textContent = '$' + base;
   }
   updatePrice();
 
