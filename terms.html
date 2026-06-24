@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms and Conditions | Spotless SF</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --rust: #A84432;
+      --rust-dark: #8a3428;
+      --rust-pale: #f9f0ee;
+      --rust-mid: #f0dbd7;
+      --charcoal: #1c1c1c;
+      --gray-600: #4a4a4a;
+      --gray-400: #8a8a8a;
+      --white: #ffffff;
+      --font-serif: Georgia, 'Times New Roman', serif;
+      --font-sans: 'Inter', -apple-system, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-sans);
+      background: #FAFAF8;
+      color: var(--charcoal);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(168,68,50,0.10);
+      box-shadow: 0 2px 24px rgba(0,0,0,0.06);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .nav-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .nav-logo svg { height: 36px; width: auto; }
+    .nav-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--rust);
+      text-decoration: none;
+      transition: gap 0.15s;
+    }
+    .nav-back:hover { gap: 10px; }
+
+    /* ─── HERO ─── */
+    .page-hero {
+      background: var(--rust);
+      color: white;
+      padding: 56px 24px 48px;
+      text-align: center;
+    }
+    .page-hero .eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      opacity: 0.75;
+      margin-bottom: 12px;
+    }
+    .page-hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .page-hero .effective {
+      font-size: 13px;
+      opacity: 0.7;
+      font-style: italic;
+    }
+
+    /* ─── CONTENT ─── */
+    .content-wrap {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 56px 24px 80px;
+    }
+
+    .intro-box {
+      background: var(--rust-pale);
+      border: 1.5px solid var(--rust-mid);
+      border-radius: 8px;
+      padding: 24px 28px;
+      font-size: 15px;
+      color: var(--gray-600);
+      line-height: 1.7;
+      margin-bottom: 48px;
+    }
+
+    .toc {
+      background: white;
+      border: 1.5px solid #ebebeb;
+      border-radius: 8px;
+      padding: 24px 28px;
+      margin-bottom: 48px;
+    }
+    .toc-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--rust);
+      margin-bottom: 14px;
+    }
+    .toc ol {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding: 0;
+    }
+    .toc ol li { counter-increment: toc-counter; }
+    .toc a {
+      font-size: 14px;
+      color: var(--gray-600);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: color 0.15s;
+    }
+    .toc a:hover { color: var(--rust); }
+    .toc a::before {
+      content: counter(toc-counter, decimal-leading-zero);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--rust);
+      opacity: 0.6;
+      min-width: 24px;
+    }
+
+    .section {
+      margin-bottom: 40px;
+      scroll-margin-top: 90px;
+    }
+
+    .section-num {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--rust);
+      margin-bottom: 6px;
+    }
+
+    h2 {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--charcoal);
+      margin-bottom: 14px;
+      padding-bottom: 12px;
+      border-bottom: 1.5px solid #f0f0f0;
+    }
+
+    p {
+      font-size: 15px;
+      color: #444;
+      margin-bottom: 14px;
+      line-height: 1.75;
+    }
+
+    ul {
+      margin: 4px 0 16px 0;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    ul li {
+      font-size: 15px;
+      color: #444;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      line-height: 1.6;
+    }
+
+    ul li::before {
+      content: '→';
+      color: var(--rust);
+      font-size: 13px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    a { color: var(--rust); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .divider {
+      border: none;
+      border-top: 1.5px solid #f0f0f0;
+      margin: 40px 0;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 20px;
+    }
+    .contact-item {
+      background: white;
+      border: 1.5px solid #ebebeb;
+      border-radius: 8px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .contact-item-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--rust);
+    }
+    .contact-item-value {
+      font-size: 14px;
+      color: var(--charcoal);
+      font-weight: 500;
+    }
+
+    .footer-note {
+      background: var(--rust);
+      color: white;
+      border-radius: 8px;
+      padding: 24px 28px;
+      font-size: 15px;
+      line-height: 1.7;
+      margin-top: 48px;
+      text-align: center;
+      font-style: italic;
+      opacity: 0.95;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #1c1c1c;
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 28px 24px;
+      font-size: 13px;
+    }
+    footer a { color: rgba(255,255,255,0.5); text-decoration: none; }
+    footer a:hover { color: var(--rust); }
+
+    @media (max-width: 600px) {
+      .content-wrap { padding: 36px 20px 60px; }
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="Spotless SF Home">
+      <svg viewBox="0 0 240 80" xmlns="http://www.w3.org/2000/svg">
+        <g fill="none" stroke="#A84432" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round">
+          <rect x="14" y="36" width="26" height="18"/><polyline points="14,36 27,27 40,36"/>
+          <rect x="40" y="31" width="28" height="23"/><polyline points="40,31 54,21 68,31"/><polyline points="44,31 54,25 64,31"/>
+          <rect x="68" y="26" width="28" height="28"/><polyline points="68,26 82,14 96,26"/><polyline points="72,26 82,18 92,26"/>
+        </g>
+        <g transform="translate(82,8)"><line x1="0" y1="-5" x2="0" y2="5" stroke="#A84432" stroke-width="1.8" stroke-linecap="round"/><line x1="-5" y1="0" x2="5" y2="0" stroke="#A84432" stroke-width="1.8" stroke-linecap="round"/></g>
+        <text x="108" y="45" font-family="Georgia,'Times New Roman',serif" font-size="22" font-weight="700" fill="#A84432" letter-spacing="1">SPOTLESS</text>
+        <text x="108" y="60" font-family="Arial,Helvetica,sans-serif" font-size="9" font-weight="500" fill="#A84432" letter-spacing="4">SAN FRANCISCO</text>
+      </svg>
+    </a>
+    <a href="index.html" class="nav-back">← Back to site</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="eyebrow">Legal</div>
+  <h1>Terms and Conditions</h1>
+  <div class="effective">Effective Date: June 2026</div>
+</div>
+
+<!-- CONTENT -->
+<div class="content-wrap">
+
+  <div class="intro-box">
+    By booking a cleaning service with Spotless SF, you agree to the following terms and conditions. Please read them carefully before confirming your appointment.
+  </div>
+
+  <div class="toc">
+    <div class="toc-title">Contents</div>
+    <ol style="counter-reset: toc-counter;">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#booking">Booking and Confirmation</a></li>
+      <li><a href="#cancellation">Cancellation Policy</a></li>
+      <li><a href="#access">Property Access</a></li>
+      <li><a href="#payment">Payment</a></li>
+      <li><a href="#liability">Liability and Damage</a></li>
+      <li><a href="#health">Health and Safety</a></li>
+      <li><a href="#privacy">Privacy</a></li>
+      <li><a href="#changes">Changes to These Terms</a></li>
+    </ol>
+  </div>
+
+  <div class="section" id="services">
+    <div class="section-num">01</div>
+    <h2>Services</h2>
+    <p>Spotless SF provides residential cleaning services in San Francisco, California, including standard cleanings, deep cleans, and move-in/move-out cleans. All services are performed by vetted, insured cleaning professionals.</p>
+    <p>Service scope is based on the package selected at the time of booking. Any additional services requested on the day of the clean may incur additional charges and are subject to availability.</p>
+  </div>
+
+  <div class="section" id="booking">
+    <div class="section-num">02</div>
+    <h2>Booking and Confirmation</h2>
+    <p>All bookings are confirmed upon receipt of your completed booking form and a valid payment method on file. A confirmation email or text will be sent to the contact information provided at the time of booking.</p>
+    <p>By providing a payment method, you authorize Spotless SF to charge the agreed service amount upon completion of the cleaning, and any applicable fees in accordance with our cancellation policy.</p>
+  </div>
+
+  <div class="section" id="cancellation">
+    <div class="section-num">03</div>
+    <h2>Cancellation Policy</h2>
+    <p>We understand plans change. Our cancellation policy is as follows:</p>
+    <ul>
+      <li><strong>24+ hours notice:</strong> Full refund, no charge.</li>
+      <li><strong>Less than 24 hours notice:</strong> 50% cancellation fee of the total service price.</li>
+      <li><strong>No-show:</strong> If our team arrives and is unable to access the property, the full service price will be charged.</li>
+    </ul>
+    <p>To cancel or reschedule, please contact us as soon as possible at <a href="mailto:info@spotlesssf.com">info@spotlesssf.com</a> or via your booking confirmation link. Cancellation fees will be charged to the payment method on file.</p>
+  </div>
+
+  <div class="section" id="access">
+    <div class="section-num">04</div>
+    <h2>Property Access</h2>
+    <p>It is your responsibility to ensure that our team has safe and timely access to your property at the scheduled time. This includes providing accurate entry instructions, access codes, or keys as needed.</p>
+    <p>If access cannot be obtained within 15 minutes of the scheduled start time and we have not been notified in advance, the appointment may be treated as a no-show and the full service price will be charged.</p>
+  </div>
+
+  <div class="section" id="payment">
+    <div class="section-num">05</div>
+    <h2>Payment</h2>
+    <p>Payment is due upon completion of each cleaning service. Spotless SF accepts major credit and debit cards. A valid payment method must be on file prior to the start of any service.</p>
+    <p>Invoices will be sent electronically following the completion of service. Payments not received within 7 days of the invoice date may be subject to a late fee.</p>
+  </div>
+
+  <div class="section" id="liability">
+    <div class="section-num">06</div>
+    <h2>Liability and Damage</h2>
+    <p>Spotless SF is fully insured. In the unlikely event of damage caused by our team during a cleaning, please notify us within 24 hours of your appointment with photos and a description of the damage.</p>
+    <p>Spotless SF is not responsible for damage resulting from pre-existing conditions, improperly secured items, fragile or irreplaceable items not disclosed prior to the clean, or items that were not in their normal position.</p>
+    <p>Our liability is limited to the cost of the cleaning service rendered.</p>
+  </div>
+
+  <div class="section" id="health">
+    <div class="section-num">07</div>
+    <h2>Health and Safety</h2>
+    <p>For the safety of our team, please ensure pets are secured and any known hazards are disclosed prior to your appointment. Our team reserves the right to decline cleaning in conditions deemed unsafe or unsanitary beyond a reasonable standard.</p>
+  </div>
+
+  <div class="section" id="privacy">
+    <div class="section-num">08</div>
+    <h2>Privacy</h2>
+    <p>All personal information collected during booking is used solely to provide and improve our services. We do not sell or share your information with third parties. Your contact details may be used to send appointment confirmations, reminders, and follow-up communications.</p>
+  </div>
+
+  <div class="section" id="changes">
+    <div class="section-num">09</div>
+    <h2>Changes to These Terms</h2>
+    <p>Spotless SF reserves the right to update these terms and conditions at any time. Changes will be posted on our website and will take effect immediately upon posting. Continued use of our services constitutes acceptance of the updated terms.</p>
+  </div>
+
+  <hr class="divider" />
+
+  <div class="section">
+    <div class="section-num">Contact</div>
+    <h2>Questions About These Terms?</h2>
+    <p>Reach out and we'll be happy to clarify anything.</p>
+    <div class="contact-grid">
+      <div class="contact-item">
+        <span class="contact-item-label">Email</span>
+        <a href="mailto:info@spotlesssf.com" class="contact-item-value">info@spotlesssf.com</a>
+      </div>
+      <div class="contact-item">
+        <span class="contact-item-label">Website</span>
+        <a href="index.html" class="contact-item-value">spotlesssf.com</a>
+      </div>
+      <div class="contact-item">
+        <span class="contact-item-label">Location</span>
+        <span class="contact-item-value">San Francisco, CA</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-note">
+    Thank you for choosing Spotless SF. We look forward to serving you.
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2025 Spotless SF · <a href="index.html">Home</a> · <a href="terms.html">Terms and Conditions</a></p>
+</footer>
+
+</body>
+</html>
