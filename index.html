@@ -1204,32 +1204,26 @@
             <div class="form-group">
               <label>HOME SIZE</label>
               <div class="select-wrapper">
-                <select id="home-size" onchange="syncSqft(); updatePrice()">
+                <select id="home-size" onchange="updatePrice()">
                   <option value="studio">Studio</option>
                   <option value="1br11">1 Bed / 1 Bath</option>
                   <option value="2br11">2 Bed / 1 Bath</option>
                   <option value="2br22" selected>2 Bed / 2 Bath</option>
+                  <option value="3br11">3 Bed / 1 Bath</option>
                   <option value="3br22">3 Bed / 2 Bath</option>
+                  <option value="3br33">3 Bed / 3 Bath</option>
+                  <option value="4br11">4 Bed / 1 Bath</option>
+                  <option value="4br22">4 Bed / 2 Bath</option>
                   <option value="4br33">4 Bed / 3 Bath</option>
+                  <option value="4br44">4 Bed / 4 Bath</option>
                 </select>
               </div>
             </div>
           </div>
           <div class="form-row">
             <div class="form-group">
-              <label>SQ FOOTAGE (ESTIMATE)</label>
-              <div class="select-wrapper">
-                <select id="sqft" onchange="syncHomeSize(); updatePrice()">
-                  <option value="studio">400–550 sq ft (Studio)</option>
-                  <option value="1br11">550–750 sq ft (1 Bed / 1 Bath)</option>
-                  <option value="2br11">750–1,000 sq ft (2 Bed / 1 Bath)</option>
-                  <option value="2br22" selected>1,000–1,200 sq ft (2 Bed / 2 Bath)</option>
-                  <option value="3br22">1,200–1,800 sq ft (3 Bed / 2 Bath)</option>
-                  <option value="4br33">1,800+ sq ft (4 Bed / 3 Bath)</option>
-                </select>
-              </div>
-            </div>
-              <input type="date" id="clean-date" />
+              <label>DATE</label>
+                <input type="date" id="clean-date" />
             </div>
           </div>
           <div class="form-price">
@@ -1291,7 +1285,7 @@
           <li>Dusting surfaces & fixtures</li>
           <li>Trash removal & linens changed</li>
         </ul>
-        <div class="service-price">From $199</div>
+        <div class="service-price">From $139</div>
       </div>
       <div class="service-card">
         <div class="service-icon">
@@ -1306,7 +1300,7 @@
           <li>Light switches & door handles</li>
           <li>Inside cabinet & drawer wipedown</li>
         </ul>
-        <div class="service-price">From $269</div>
+        <div class="service-price">From $239</div>
       </div>
       <div class="service-card">
         <div class="service-icon">
@@ -1321,7 +1315,7 @@
           <li>All closets cleaned out</li>
           <li>Final walkthrough with checklist</li>
         </ul>
-        <div class="service-price">From $350</div>
+        <div class="service-price">From $315</div>
       </div>
     </div>
   </div>
@@ -1375,48 +1369,94 @@
       <table style="width:100%;border-collapse:collapse;font-size:15px;">
         <thead>
           <tr style="background:var(--rust);color:var(--white);">
-            <th style="padding:16px 20px;text-align:left;font-family:var(--font-serif);font-weight:700;">Home Size</th>
-            <th style="padding:16px 20px;text-align:center;font-family:var(--font-serif);font-weight:700;">Standard Clean</th>
-            <th style="padding:16px 20px;text-align:center;font-family:var(--font-serif);font-weight:700;">Deep Clean</th>
-            <th style="padding:16px 20px;text-align:center;font-family:var(--font-serif);font-weight:700;">Move In / Out</th>
+            <th style="padding:14px 20px;text-align:left;font-family:var(--font-serif);font-weight:700;">Home Size</th>
+            <th style="padding:14px 20px;text-align:center;font-family:var(--font-serif);font-weight:700;">Standard Clean</th>
+            <th style="padding:14px 20px;text-align:center;font-family:var(--font-serif);font-weight:700;">Deep Clean</th>
+            <th style="padding:14px 20px;text-align:center;font-family:var(--font-serif);font-weight:700;">Move In / Out</th>
           </tr>
         </thead>
         <tbody>
+          <!-- Studio & 1-Bed -->
+          <tr style="border-bottom:1px solid #ebebeb;background:#fafafa;">
+            <td style="padding:10px 20px;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--rust);border-bottom:2px solid var(--rust-mid);" colspan="4">Studio &amp; 1-Bedroom</td>
+          </tr>
           <tr style="border-bottom:1px solid #ebebeb;">
-            <td style="padding:18px 20px;"><strong>Studio</strong></td>
-            <td style="padding:18px 20px;text-align:center;"><strong style="font-size:18px;color:var(--rust);">$199</strong></td>
-            <td style="padding:18px 20px;text-align:center;"><strong style="font-size:18px;color:var(--rust);">$269</strong></td>
-            <td style="padding:18px 20px;text-align:center;"><strong style="font-size:18px;color:var(--rust);">$350</strong></td>
+            <td style="padding:14px 20px;">Studio</td>
+            <td style="padding:14px 20px;text-align:center;"><strong style="font-size:17px;color:var(--rust);">$139</strong></td>
+            <td style="padding:14px 20px;text-align:center;"><strong style="font-size:17px;color:var(--rust);">$239</strong></td>
+            <td style="padding:14px 20px;text-align:center;"><strong style="font-size:17px;color:var(--rust);">$315</strong></td>
           </tr>
           <tr style="border-bottom:1px solid #ebebeb;background:var(--rust-pale);">
-            <td style="padding:18px 20px;"><strong>1 Bed / 1 Bath</strong></td>
-            <td style="padding:18px 20px;text-align:center;"><strong style="font-size:18px;color:var(--rust);">$239</strong></td>
-            <td style="padding:18px 20px;text-align:center;"><strong style="font-size:18px;color:var(--rust);">$319</strong></td>
-            <td style="padding:18px 20px;text-align:center;"><strong style="font-size:18px;color:var(--rust);">$420</strong></td>
+            <td style="padding:14px 20px;">1 Bed / 1 Bath</td>
+            <td style="padding:14px 20px;text-align:center;"><strong style="font-size:17px;color:var(--rust);">$179</strong></td>
+            <td style="padding:14px 20px;text-align:center;"><strong style="font-size:17px;color:var(--rust);">$285</strong></td>
+            <td style="padding:14px 20px;text-align:center;"><strong style="font-size:17px;color:var(--rust);">$419</strong></td>
+          </tr>
+          <!-- 2-Bed -->
+          <tr style="background:#fafafa;">
+            <td style="padding:10px 20px;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--rust);border-top:8px solid var(--rust-mid);border-bottom:2px solid var(--rust-mid);" colspan="4">2-Bedroom</td>
           </tr>
           <tr style="border-bottom:1px solid #ebebeb;">
-            <td style="padding:18px 20px;"><strong>2 Bed / 1 Bath</strong></td>
-            <td style="padding:18px 20px;text-align:center;"><strong style="font-size:18px;color:var(--rust);">$299</strong></td>
-            <td style="padding:18px 20px;text-align:center;"><strong style="font-size:18px;color:var(--rust);">$369</strong></td>
-            <td style="padding:18px 20px;text-align:center;"><strong style="font-size:18px;color:var(--rust);">$490</strong></td>
+            <td style="padding:14px 20px;">2 Bed / 1 Bath</td>
+            <td style="padding:14px 20px;text-align:center;"><strong style="font-size:17px;color:var(--rust);">$219</strong></td>
+            <td style="padding:14px 20px;text-align:center;"><strong style="font-size:17px;color:var(--rust);">$335</strong></td>
+            <td style="padding:14px 20px;text-align:center;"><strong style="font-size:17px;color:var(--rust);">$515</strong></td>
           </tr>
           <tr style="border-bottom:1px solid #ebebeb;background:var(--rust-pale);">
-            <td style="padding:18px 20px;"><strong>2 Bed / 2 Bath</strong></td>
-            <td style="padding:18px 20px;text-align:center;"><strong style="font-size:18px;color:var(--rust);">$349</strong></td>
-            <td style="padding:18px 20px;text-align:center;"><strong style="font-size:18px;color:var(--rust);">$419</strong></td>
-            <td style="padding:18px 20px;text-align:center;"><strong style="font-size:18px;color:var(--rust);">$540</strong></td>
+            <td style="padding:14px 20px;">2 Bed / 2 Bath</td>
+            <td style="padding:14px 20px;text-align:center;"><strong style="font-size:17px;color:var(--rust);">$259</strong></td>
+            <td style="padding:14px 20px;text-align:center;"><strong style="font-size:17px;color:var(--rust);">$379</strong></td>
+            <td style="padding:14px 20px;text-align:center;"><strong style="font-size:17px;color:var(--rust);">$525</strong></td>
+          </tr>
+          <!-- 3-Bed -->
+          <tr style="background:#fafafa;">
+            <td style="padding:10px 20px;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--rust);border-top:8px solid var(--rust-mid);border-bottom:2px solid var(--rust-mid);" colspan="4">3-Bedroom</td>
           </tr>
           <tr style="border-bottom:1px solid #ebebeb;">
-            <td style="padding:18px 20px;"><strong>3 Bed / 2 Bath</strong></td>
-            <td style="padding:18px 20px;text-align:center;"><strong style="font-size:18px;color:var(--rust);">$399</strong></td>
-            <td style="padding:18px 20px;text-align:center;"><strong style="font-size:18px;color:var(--rust);">$499</strong></td>
-            <td style="padding:18px 20px;text-align:center;"><strong style="font-size:18px;color:var(--rust);">$610</strong></td>
+            <td style="padding:14px 20px;">3 Bed / 1 Bath</td>
+            <td style="padding:14px 20px;text-align:center;"><strong style="font-size:17px;color:var(--rust);">$299</strong></td>
+            <td style="padding:14px 20px;text-align:center;"><strong style="font-size:17px;color:var(--rust);">$475</strong></td>
+            <td style="padding:14px 20px;text-align:center;"><strong style="font-size:17px;color:var(--rust);">$629</strong></td>
+          </tr>
+          <tr style="border-bottom:1px solid #ebebeb;background:var(--rust-pale);">
+            <td style="padding:14px 20px;">3 Bed / 2 Bath</td>
+            <td style="padding:14px 20px;text-align:center;"><strong style="font-size:17px;color:var(--rust);">$299</strong></td>
+            <td style="padding:14px 20px;text-align:center;"><strong style="font-size:17px;color:var(--rust);">$475</strong></td>
+            <td style="padding:14px 20px;text-align:center;"><strong style="font-size:17px;color:var(--rust);">$629</strong></td>
+          </tr>
+          <tr style="border-bottom:1px solid #ebebeb;">
+            <td style="padding:14px 20px;">3 Bed / 3 Bath</td>
+            <td style="padding:14px 20px;text-align:center;"><strong style="font-size:17px;color:var(--rust);">$349</strong></td>
+            <td style="padding:14px 20px;text-align:center;"><strong style="font-size:17px;color:var(--rust);">$519</strong></td>
+            <td style="padding:14px 20px;text-align:center;"><strong style="font-size:17px;color:var(--rust);">$679</strong></td>
+          </tr>
+          <!-- 4-Bed -->
+          <tr style="background:#fafafa;">
+            <td style="padding:10px 20px;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--rust);border-top:8px solid var(--rust-mid);border-bottom:2px solid var(--rust-mid);" colspan="4">4-Bedroom</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ebebeb;">
+            <td style="padding:14px 20px;">4 Bed / 1 Bath</td>
+            <td style="padding:14px 20px;text-align:center;"><strong style="font-size:17px;color:var(--rust);">$349</strong></td>
+            <td style="padding:14px 20px;text-align:center;"><strong style="font-size:17px;color:var(--rust);">$529</strong></td>
+            <td style="padding:14px 20px;text-align:center;"><strong style="font-size:17px;color:var(--rust);">$689</strong></td>
+          </tr>
+          <tr style="border-bottom:1px solid #ebebeb;background:var(--rust-pale);">
+            <td style="padding:14px 20px;">4 Bed / 2 Bath</td>
+            <td style="padding:14px 20px;text-align:center;"><strong style="font-size:17px;color:var(--rust);">$349</strong></td>
+            <td style="padding:14px 20px;text-align:center;"><strong style="font-size:17px;color:var(--rust);">$519</strong></td>
+            <td style="padding:14px 20px;text-align:center;"><strong style="font-size:17px;color:var(--rust);">$679</strong></td>
+          </tr>
+          <tr style="border-bottom:1px solid #ebebeb;">
+            <td style="padding:14px 20px;">4 Bed / 3 Bath</td>
+            <td style="padding:14px 20px;text-align:center;"><strong style="font-size:17px;color:var(--rust);">$389</strong></td>
+            <td style="padding:14px 20px;text-align:center;"><strong style="font-size:17px;color:var(--rust);">$569</strong></td>
+            <td style="padding:14px 20px;text-align:center;"><strong style="font-size:17px;color:var(--rust);">$735</strong></td>
           </tr>
           <tr style="background:var(--rust-pale);">
-            <td style="padding:18px 20px;"><strong>4 Bed / 3 Bath</strong></td>
-            <td style="padding:18px 20px;text-align:center;"><strong style="font-size:18px;color:var(--rust);">$499</strong></td>
-            <td style="padding:18px 20px;text-align:center;"><strong style="font-size:18px;color:var(--rust);">$599</strong></td>
-            <td style="padding:18px 20px;text-align:center;"><strong style="font-size:18px;color:var(--rust);">$699</strong></td>
+            <td style="padding:14px 20px;">4 Bed / 4 Bath</td>
+            <td style="padding:14px 20px;text-align:center;"><strong style="font-size:17px;color:var(--rust);">$429</strong></td>
+            <td style="padding:14px 20px;text-align:center;"><strong style="font-size:17px;color:var(--rust);">$619</strong></td>
+            <td style="padding:14px 20px;text-align:center;"><strong style="font-size:17px;color:var(--rust);">$789</strong></td>
           </tr>
         </tbody>
       </table>
@@ -1645,22 +1685,29 @@
 
   // ── Price calculator ──
   const prices = {
-    standard: { studio: 199, '1br11': 239, '2br11': 299, '2br22': 349, '3br22': 399, '4br33': 499 },
-    deep:     { studio: 269, '1br11': 319, '2br11': 369, '2br22': 419, '3br22': 499, '4br33': 599 },
-    move:     { studio: 350, '1br11': 420, '2br11': 490, '2br22': 540, '3br22': 610, '4br33': 699 },
+    standard: {
+      studio:  139, '1br11': 179,
+      '2br11': 219, '2br22': 259,
+      '3br11': 299, '3br22': 299, '3br33': 349,
+      '4br11': 349, '4br22': 349, '4br33': 389, '4br44': 429
+    },
+    deep: {
+      studio:  239, '1br11': 285,
+      '2br11': 335, '2br22': 379,
+      '3br11': 475, '3br22': 475, '3br33': 519,
+      '4br11': 529, '4br22': 519, '4br33': 569, '4br44': 619
+    },
+    move: {
+      studio:  315, '1br11': 419,
+      '2br11': 515, '2br22': 525,
+      '3br11': 629, '3br22': 629, '3br33': 679,
+      '4br11': 689, '4br22': 679, '4br33': 735, '4br44': 789
+    },
   };
-  function syncSqft() {
-    const size = document.getElementById('home-size').value;
-    document.getElementById('sqft').value = size;
-  }
-  function syncHomeSize() {
-    const sqft = document.getElementById('sqft').value;
-    document.getElementById('home-size').value = sqft;
-  }
   function updatePrice() {
     const type = document.getElementById('service-type').value;
     const size = document.getElementById('home-size').value;
-    const base = prices[type]?.[size] ?? 349;
+    const base = prices[type]?.[size] ?? 259;
     document.getElementById('price-display').textContent = '$' + base;
   }
   updatePrice();
