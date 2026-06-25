@@ -112,6 +112,20 @@
     }
 
     /* ─── HERO ────────────────────────────────────────── */
+    .hero-bg-left {
+      position: absolute;
+      top: 0; left: 0;
+      width: 50%;
+      height: 100%;
+      background: url('hero-room.jpg') center center / cover no-repeat;
+      z-index: 0;
+    }
+    .hero-bg-left::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255,255,255,0.72);
+    }
     .hero {
       padding: 140px 24px 100px;
       max-width: var(--max-w);
@@ -120,6 +134,8 @@
       grid-template-columns: 1fr 1fr;
       gap: 64px;
       align-items: center;
+      position: relative;
+      z-index: 1;
     }
     .hero-eyebrow {
       display: inline-flex;
@@ -1071,6 +1087,7 @@
     /* ─── RESPONSIVE ─────────────────────────────────── */
     @media (max-width: 1024px) {
       .hero { grid-template-columns: 1fr; gap: 48px; padding-top: 120px; }
+      .hero-bg-left { display: none; }
       .hero-visual { max-width: 480px; }
       .hero-float-badge { left: 0; }
       .services-grid { grid-template-columns: 1fr 1fr; }
@@ -1163,7 +1180,8 @@
 </nav>
 
 <!-- ─── HERO ─────────────────────────────────────────────── -->
-<section style="padding: 0;">
+<section style="padding: 0; position: relative; overflow: hidden;">
+  <div class="hero-bg-left"></div>
   <div class="hero">
     <div class="hero-content">
       <div class="hero-eyebrow">San Francisco's Finest</div>
