@@ -1079,6 +1079,72 @@
       font-size: 15px;
     }
 
+    /* ─── BEFORE / AFTER SLIDER ──────────────────────── */
+    .beforeafter { background: #FAFAF8; }
+    .beforeafter .section-inner { max-width: 860px; }
+    .ba-wrap {
+      position: relative;
+      width: 100%;
+      max-width: 720px;
+      margin: 0 auto;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 16px 48px rgba(0,0,0,0.14);
+      cursor: col-resize;
+      user-select: none;
+    }
+    .ba-img {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+    }
+    .ba-img img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      pointer-events: none;
+    }
+    .ba-img.after { clip-path: inset(0 50% 0 0); }
+    .ba-divider {
+      position: absolute;
+      top: 0; bottom: 0;
+      left: 50%;
+      width: 3px;
+      background: white;
+      transform: translateX(-50%);
+      pointer-events: none;
+      z-index: 3;
+    }
+    .ba-handle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 44px; height: 44px;
+      background: white;
+      border-radius: 50%;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+      display: flex; align-items: center; justify-content: center;
+      pointer-events: none;
+      z-index: 4;
+      color: var(--rust);
+    }
+    .ba-labels {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 14px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--gray-400);
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .ba-labels span:last-child { color: var(--rust); }
+
     /* ─── RESPONSIVE ─────────────────────────────────── */
     @media (max-width: 1024px) {
       .hero { grid-template-columns: 1fr; gap: 48px; padding-top: 120px; }
@@ -1332,6 +1398,67 @@
     </div>
   </div>
 </section>
+
+<!-- ─── BEFORE / AFTER ────────────────────────────────────── -->
+<section class="beforeafter" id="results">
+  <div class="section-inner">
+    <div class="section-label" style="text-align:center;">Real Results</div>
+    <h2 class="section-title" style="text-align:center;">See the difference</h2>
+    <p class="section-sub" style="text-align:center;max-width:480px;margin:0 auto 40px;">Drag the slider to see what a Spotless SF deep clean looks like.</p>
+    <div class="ba-wrap" id="ba-wrap">
+      <div class="ba-img before">
+        <img src="shower-before.jpg" alt="Shower before cleaning" draggable="false" />
+      </div>
+      <div class="ba-img after" id="ba-after">
+        <img src="shower-after.jpg" alt="Shower after cleaning" draggable="false" />
+      </div>
+      <div class="ba-divider" id="ba-divider"></div>
+      <div class="ba-handle" id="ba-handle">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+    </div>
+    <div class="ba-labels">
+      <span>Before</span>
+      <span>After</span>
+    </div>
+  </div>
+</section>
+<script>
+(function(){
+  const wrap = document.getElementById('ba-wrap');
+  const after = document.getElementById('ba-after');
+  const divider = document.getElementById('ba-divider');
+  const handle = document.getElementById('ba-handle');
+  let dragging = false;
+
+  function setPos(pct) {
+    pct = Math.max(5, Math.min(95, pct));
+    after.style.clipPath = 'inset(0 ' + (100 - pct) + '% 0 0)';
+    divider.style.left = pct + '%';
+    handle.style.left = pct + '%';
+  }
+
+  function getX(e) {
+    return e.touches ? e.touches[0].clientX : e.clientX;
+  }
+
+  function onMove(e) {
+    if (!dragging) return;
+    const rect = wrap.getBoundingClientRect();
+    setPos(((getX(e) - rect.left) / rect.width) * 100);
+  }
+
+  wrap.addEventListener('mousedown', function(e){ dragging = true; onMove(e); });
+  wrap.addEventListener('touchstart', function(e){ dragging = true; onMove(e); }, {passive:true});
+  window.addEventListener('mousemove', onMove);
+  window.addEventListener('touchmove', onMove, {passive:true});
+  window.addEventListener('mouseup', function(){ dragging = false; });
+  window.addEventListener('touchend', function(){ dragging = false; });
+
+  setPos(50);
+})();
+</script>
 
 <!-- ─── HOW IT WORKS ──────────────────────────────────────── -->
 <section class="how" id="how">
