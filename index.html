@@ -1145,6 +1145,67 @@
     }
     .ba-labels span:last-child { color: var(--rust); }
 
+    /* ─── REVIEWS ────────────────────────────────────── */
+    .reviews { background: var(--rust-pale); }
+    .reviews-carousel {
+      position: relative;
+      max-width: 680px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+    .reviews-track {
+      display: flex;
+      transition: transform 0.6s cubic-bezier(0.4,0,0.2,1);
+    }
+    .review-slide {
+      min-width: 100%;
+      padding: 0 4px;
+    }
+    .review-card {
+      background: var(--white);
+      border: 1.5px solid var(--rust-mid);
+      border-radius: 10px;
+      padding: 36px 40px;
+      text-align: center;
+    }
+    .review-stars {
+      color: #e8a020;
+      font-size: 20px;
+      letter-spacing: 2px;
+      margin-bottom: 18px;
+    }
+    .review-text {
+      font-family: var(--font-serif);
+      font-size: 17px;
+      line-height: 1.75;
+      color: var(--charcoal);
+      margin-bottom: 24px;
+      font-style: italic;
+    }
+    .review-author {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--rust);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .review-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 28px;
+    }
+    .review-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--rust-mid);
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: background 0.2s;
+    }
+    .review-dot.active { background: var(--rust); }
+
     /* ─── RESPONSIVE ─────────────────────────────────── */
     @media (max-width: 1024px) {
       .hero { grid-template-columns: 1fr; gap: 48px; padding-top: 120px; }
@@ -1496,6 +1557,86 @@
 
 
 
+
+<!-- ─── REVIEWS ───────────────────────────────────────────── -->
+<section class="reviews">
+  <div class="section-inner">
+    <div class="section-label" style="text-align:center;">Google Reviews</div>
+    <h2 class="section-title" style="text-align:center;">What our neighbors are saying</h2>
+    <div class="reviews-carousel" id="reviews-carousel">
+      <div class="reviews-track" id="reviews-track">
+
+        <div class="review-slide">
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">"Every corner of our house was cleaned thoroughly! Very impressed with the service and the communication!"</p>
+            <div class="review-author">Poulomi Das</div>
+          </div>
+        </div>
+
+        <div class="review-slide">
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">"Easy to schedule, fantastic service and did an amazing job."</p>
+            <div class="review-author">Jason Shen</div>
+          </div>
+        </div>
+
+        <div class="review-slide">
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">"The name literally describes it! They left my house completely spotless!! Definitely will be hiring them again. Value for money was also amazing!"</p>
+            <div class="review-author">Meher Dev</div>
+          </div>
+        </div>
+
+        <div class="review-slide">
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">"Great service and made my place amazingly clean!"</p>
+            <div class="review-author">Sol Chen</div>
+          </div>
+        </div>
+
+        <div class="review-slide">
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">"I had Spotless SF out for a standard clean and couldn't be happier. Booking was easy and they showed up right on time."</p>
+            <div class="review-author">Matthew Dijamco</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="review-dots" id="review-dots"></div>
+  </div>
+</section>
+<script>
+(function(){
+  const track = document.getElementById('reviews-track');
+  const dotsWrap = document.getElementById('review-dots');
+  const slides = track.querySelectorAll('.review-slide');
+  let current = 0, timer;
+
+  slides.forEach(function(_, i) {
+    const d = document.createElement('button');
+    d.className = 'review-dot' + (i === 0 ? ' active' : '');
+    d.addEventListener('click', function(){ go(i); restart(); });
+    dotsWrap.appendChild(d);
+  });
+
+  function go(n) {
+    current = (n + slides.length) % slides.length;
+    track.style.transform = 'translateX(-' + (current * 100) + '%)';
+    dotsWrap.querySelectorAll('.review-dot').forEach(function(d, i){
+      d.classList.toggle('active', i === current);
+    });
+  }
+
+  function restart() { clearInterval(timer); timer = setInterval(function(){ go(current + 1); }, 5000); }
+  restart();
+})();
+</script>
 
 <!-- ─── FAQ ────────────────────────────────────────────────── -->
 <section class="faq" id="faq">
