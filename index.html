@@ -1105,7 +1105,7 @@
       display: block;
       pointer-events: none;
     }
-    .ba-img.after { clip-path: inset(0 50% 0 0); }
+    .ba-img.after { clip-path: inset(0 0 0 50%); }
     .ba-divider {
       position: absolute;
       top: 0; bottom: 0;
@@ -1434,7 +1434,7 @@
 
   function setPos(pct) {
     pct = Math.max(5, Math.min(95, pct));
-    after.style.clipPath = 'inset(0 ' + (100 - pct) + '% 0 0)';
+    after.style.clipPath = 'inset(0 0 0 ' + pct + '%)';
     divider.style.left = pct + '%';
     handle.style.left = pct + '%';
   }
